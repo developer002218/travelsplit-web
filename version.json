@@ -1,6 +1,7 @@
 {
   "versionCode": 2,
   "versionName": "1.1",
-  "releaseNotes": "• New Pull-to-Refresh feature\n• Unsaved changes back guard\n• Stability & performance improvements",
-  "downloadUrl": "https://travelsplit.in/TravelSplit_v1.1.apk"
+  "minSupportedVersion": 1,
+  "apkUrl": "https://github.com/developer002218/travelsplit-web/releases/download/v1.1/TravelSplit_v1.1.apk",
+  "releaseNotes": "TravelSplit Beta v1.1 - Fixed dark mode contrast, compact budget manager, and expense permissions."
 }
