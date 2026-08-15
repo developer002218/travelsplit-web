@@ -325,8 +325,8 @@
       height: 100%;
     }
 
-    /* Developer Section */
-    .dev-card {
+    /* Professional Support Section */
+    .support-card {
       background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.85));
       border: 1px solid rgba(99, 102, 241, 0.3);
       border-radius: 24px;
@@ -335,39 +335,32 @@
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
-    .dev-content {
+    .support-content {
       display: flex;
       flex-wrap: wrap;
       align-items: center;
       gap: 28px;
     }
 
-    .dev-avatar {
-      width: 100px;
-      height: 100px;
-      border-radius: 24px;
+    .support-icon-box {
+      width: 80px;
+      height: 80px;
+      border-radius: 20px;
       background: linear-gradient(135deg, var(--primary), var(--emerald));
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 42px;
-      overflow: hidden;
+      font-size: 36px;
       border: 2px solid rgba(255, 255, 255, 0.2);
       flex-shrink: 0;
     }
 
-    .dev-avatar img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .dev-info {
+    .support-info {
       flex: 1;
       min-width: 260px;
     }
 
-    .dev-tag {
+    .support-tag {
       font-size: 11px;
       font-weight: 700;
       color: #34D399;
@@ -380,56 +373,38 @@
       letter-spacing: 0.5px;
     }
 
-    .dev-name {
-      font-size: 24px;
+    .support-title {
+      font-size: 22px;
       font-weight: 800;
       color: #fff;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
     }
 
-    .dev-role {
-      font-size: 14px;
-      color: #A5B4FC;
-      margin-bottom: 12px;
-      font-weight: 500;
-    }
-
-    .dev-bio {
+    .support-bio {
       font-size: 14px;
       color: var(--text-muted);
       line-height: 1.6;
       margin-bottom: 16px;
     }
 
-    .dev-contact-btn {
+    .support-btn {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: rgba(99, 102, 241, 0.15);
       border: 1px solid rgba(99, 102, 241, 0.4);
       color: #C7D2FE;
-      padding: 8px 18px;
-      border-radius: 10px;
-      font-size: 13px;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-size: 14px;
       font-weight: 600;
       text-decoration: none;
       transition: all 0.2s;
-      margin-bottom: 16px;
     }
 
-    .dev-contact-btn:hover {
-      background: rgba(99, 102, 241, 0.25);
+    .support-btn:hover {
+      background: rgba(99, 102, 241, 0.3);
       color: #fff;
-    }
-
-    .tech-pill {
-      background: rgba(99, 102, 241, 0.15);
-      color: #A5B4FC;
-      border: 1px solid rgba(99, 102, 241, 0.3);
-      padding: 4px 12px;
-      border-radius: 8px;
-      font-size: 12px;
-      font-weight: 600;
     }
 
     footer {
@@ -455,7 +430,7 @@
       </a>
       <div class="nav-buttons">
         <a href="#features" class="nav-btn-outline">Features</a>
-        <a href="#developer" class="nav-btn-outline">Developer</a>
+        <a href="#support" class="nav-btn-outline">Support</a>
         <a href="https://travelsplit.in/TravelSplit_v1.1.apk" class="nav-btn-outline" style="border-color: rgba(99,102,241,0.5); color: #A5B4FC;">Download APK</a>
       </div>
     </header>
@@ -570,35 +545,28 @@
       </div>
     </section>
 
-    <!-- Meet the Developer Section -->
-    <section id="developer" class="dev-card">
-      <div class="dev-content">
-        <div class="dev-avatar">
-          <img src="developer.jpg" alt="Akhand Pratap Singh" onerror="this.style.display='none'; this.parentElement.innerText='👨‍💻';" />
+    <!-- Professional Support & Help Desk Section -->
+    <section id="support" class="support-card">
+      <div class="support-content">
+        <div class="support-icon-box">
+          ✉️
         </div>
-        <div class="dev-info">
-          <span class="dev-tag">Creator & Lead Engineer</span>
-          <div class="dev-name">Akhand Pratap Singh</div>
-          <div class="dev-role">Android Developer & Architect of TravelSplit</div>
-          <p class="dev-bio">
-            TravelSplit was envisioned and engineered from the ground up to eliminate friction during group travel, shared expense splitting, and settlement math. Built using modern Android architecture, Kotlin, Jetpack Compose, and Cloud Firestore.
+        <div class="support-info">
+          <span class="support-tag">Official Support & Help Desk</span>
+          <div class="support-title">Have Questions or Feedback?</div>
+          <p class="support-bio">
+            Encountered an issue during beta testing, or have a feature suggestion? Our support desk is actively reviewing user feedback to prepare TravelSplit for its upcoming Google Play Store release.
           </p>
           <div>
-            <a href="mailto:travelsplit.support01@gmail.com" class="dev-contact-btn">
-              ✉️ Contact Support: travelsplit.support01@gmail.com
+            <a href="mailto:travelsplit.support01@gmail.com" class="support-btn">
+              <span>✉️</span> travelsplit.support01@gmail.com
             </a>
-          </div>
-          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
-            <span class="tech-pill">Kotlin</span>
-            <span class="tech-pill">Jetpack Compose</span>
-            <span class="tech-pill">Cloud Firestore</span>
-            <span class="tech-pill">Room DB</span>
-            <span class="tech-pill">Gemini AI</span>
           </div>
         </div>
       </div>
     </section>
 
+    <!-- Clean Footer with Permanent Developer Attribution -->
     <footer>
       <p>© 2026 TravelSplit. Designed & Developed by <strong>Akhand Pratap Singh</strong>. All rights reserved.</p>
       <p style="font-size: 11px; margin-top: 6px; color: #64748B;">Official Support: travelsplit.support01@gmail.com • Domain: travelsplit.in</p>
