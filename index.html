@@ -113,6 +113,10 @@
       transition: all 0.2s;
     }
 
+    .nav-btn-outline:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
     .hero {
       text-align: center;
       padding: 60px 10px 40px;
@@ -240,11 +244,6 @@
       transition: all 0.25s ease;
     }
 
-    .feature-card:hover {
-      transform: translateY(-4px);
-      border-color: rgba(99, 102, 241, 0.4);
-    }
-
     .feature-icon {
       width: 48px;
       height: 48px;
@@ -272,10 +271,6 @@
     }
 
     /* Screenshots Section */
-    .screenshots-section {
-      margin: 60px 0;
-    }
-
     .showcase-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -312,7 +307,6 @@
       align-items: center;
       justify-content: center;
       color: var(--text-muted);
-      position: relative;
     }
 
     .mockup-box img {
@@ -331,21 +325,101 @@
       height: 100%;
     }
 
-    .about-card {
-      background: linear-gradient(135deg, rgba(30, 41, 59, 0.6), rgba(15, 23, 42, 0.8));
-      border: 1px solid var(--card-border);
+    /* Developer Section */
+    .dev-card {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.7), rgba(15, 23, 42, 0.85));
+      border: 1px solid rgba(99, 102, 241, 0.3);
       border-radius: 24px;
       padding: 36px;
-      margin: 60px 0 80px;
+      margin: 60px 0;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
     }
 
-    .about-header {
+    .dev-content {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      margin-bottom: 20px;
+      gap: 28px;
+    }
+
+    .dev-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 24px;
+      background: linear-gradient(135deg, var(--primary), var(--emerald));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 42px;
+      overflow: hidden;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      flex-shrink: 0;
+    }
+
+    .dev-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .dev-info {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .dev-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: #34D399;
+      background: rgba(16, 185, 129, 0.15);
+      padding: 3px 10px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .dev-name {
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .dev-role {
+      font-size: 14px;
+      color: #A5B4FC;
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .dev-bio {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+
+    .dev-contact-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #C7D2FE;
+      padding: 8px 18px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      margin-bottom: 16px;
+    }
+
+    .dev-contact-btn:hover {
+      background: rgba(99, 102, 241, 0.25);
+      color: #fff;
     }
 
     .tech-pill {
@@ -370,7 +444,7 @@
 <body>
 
   <div class="beta-banner">
-    <span>TESTING PHASE</span> TravelSplit v1.1 is currently in Active Beta. Official Google Play Store launch coming soon!
+    <span>TESTING PHASE</span> TravelSplit v1.1 is in Active Public Beta. Google Play Store launch coming soon!
   </div>
 
   <div class="container">
@@ -381,6 +455,7 @@
       </a>
       <div class="nav-buttons">
         <a href="#features" class="nav-btn-outline">Features</a>
+        <a href="#developer" class="nav-btn-outline">Developer</a>
         <a href="https://travelsplit.in/TravelSplit_v1.1.apk" class="nav-btn-outline" style="border-color: rgba(99,102,241,0.5); color: #A5B4FC;">Download APK</a>
       </div>
     </header>
@@ -403,6 +478,7 @@
       </div>
     </section>
 
+    <!-- Key Features -->
     <section id="features">
       <div class="section-title">
         <h2>Engineered for Seamless Trips</h2>
@@ -413,7 +489,7 @@
         <div class="feature-card">
           <div class="feature-icon">💳</div>
           <h3>Smart Expense Splitting</h3>
-          <p>Split bills equally, by custom shares, or with multiple co-payers. Attach receipt images and categorize spending automatically.</p>
+          <p>Split bills equally, by custom shares, or with multiple co-payers. Attach receipt images and track spending in real-time.</p>
         </div>
 
         <div class="feature-card">
@@ -424,14 +500,14 @@
 
         <div class="feature-card">
           <div class="feature-icon">🔄</div>
-          <h3>Instant Cloud & Offline Sync</h3>
-          <p>Powered by Cloud Firestore and Room Database. Continue tracking expenses offline; data automatically reconciles when online.</p>
+          <h3>Cloud & Offline Sync</h3>
+          <p>Powered by Cloud Firestore and Room DB. Record expenses offline; everything synchronizes seamlessly once back online.</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">🎒</div>
-          <h3>Pre-Trip Checklist & Security</h3>
-          <p>Coordinate packing, tickets, and airport security compliance checklists with real-time member answer tracking.</p>
+          <h3>Pre-Trip Checklist</h3>
+          <p>Coordinate packing, tickets, and travel documents with real-time member answer tracking and security compliance checklists.</p>
         </div>
 
         <div class="feature-card">
@@ -442,13 +518,13 @@
 
         <div class="feature-card">
           <div class="feature-icon">🤖</div>
-          <h3>AI Budget & Trip Planner</h3>
-          <p>Get fare estimates and intelligent route recommendations powered by Google Gemini AI directly inside your dashboard.</p>
+          <h3>AI Budget & Route Planner</h3>
+          <p>Intelligent fare estimates and route recommendations powered by Google Gemini AI directly inside your dashboard.</p>
         </div>
       </div>
     </section>
 
-    <!-- App Screenshots Showcase (Auto detects uploaded files) -->
+    <!-- App Screenshots Showcase -->
     <section class="screenshots-section">
       <div class="section-title">
         <h2>App Interface & Workflows</h2>
@@ -494,27 +570,38 @@
       </div>
     </section>
 
-    <section class="about-card">
-      <div class="about-header">
-        <div>
-          <h2 style="font-size: 24px; font-weight: 800;">About TravelSplit</h2>
-          <p style="color: var(--text-muted); font-size: 14px; margin-top: 4px;">Crafted for friends, travel groups, and road trippers.</p>
+    <!-- Meet the Developer Section -->
+    <section id="developer" class="dev-card">
+      <div class="dev-content">
+        <div class="dev-avatar">
+          <img src="developer.jpg" alt="Akhand Pratap Singh" onerror="this.style.display='none'; this.parentElement.innerText='👨‍💻';" />
         </div>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span class="tech-pill">Kotlin</span>
-          <span class="tech-pill">Jetpack Compose</span>
-          <span class="tech-pill">Firebase</span>
-          <span class="tech-pill">Room DB</span>
+        <div class="dev-info">
+          <span class="dev-tag">Creator & Lead Engineer</span>
+          <div class="dev-name">Akhand Pratap Singh</div>
+          <div class="dev-role">Android Developer & Architect of TravelSplit</div>
+          <p class="dev-bio">
+            TravelSplit was envisioned and engineered from the ground up to eliminate friction during group travel, shared expense splitting, and settlement math. Built using modern Android architecture, Kotlin, Jetpack Compose, and Cloud Firestore.
+          </p>
+          <div>
+            <a href="mailto:travelsplit.support01@gmail.com" class="dev-contact-btn">
+              ✉️ Contact Support: travelsplit.support01@gmail.com
+            </a>
+          </div>
+          <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-top: 4px;">
+            <span class="tech-pill">Kotlin</span>
+            <span class="tech-pill">Jetpack Compose</span>
+            <span class="tech-pill">Cloud Firestore</span>
+            <span class="tech-pill">Room DB</span>
+            <span class="tech-pill">Gemini AI</span>
+          </div>
         </div>
       </div>
-      <p style="font-size: 14px; color: #CBD5E1; line-height: 1.7;">
-        TravelSplit was developed to solve the friction of tracking shared travel expenses, complex split ratios, and messy post-trip repayments. The app focuses on zero latency, complete offline reliability, and an intuitive modern interface. Currently in public beta testing, TravelSplit is being continuously refined ahead of its full Google Play Store debut.
-      </p>
     </section>
 
     <footer>
-      <p>© 2026 TravelSplit. Developed with precision. All rights reserved.</p>
-      <p style="font-size: 11px; margin-top: 6px; color: #64748B;">Domain: travelsplit.in • Android Package: com.aistudio.travelsplit.app</p>
+      <p>© 2026 TravelSplit. Designed & Developed by <strong>Akhand Pratap Singh</strong>. All rights reserved.</p>
+      <p style="font-size: 11px; margin-top: 6px; color: #64748B;">Official Support: travelsplit.support01@gmail.com • Domain: travelsplit.in</p>
     </footer>
   </div>
 
