@@ -1,21 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelSplit</title>
-    <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, sans-serif; background: #0B0F19; color: #FFFFFF; text-align: center; padding: 60px 20px; }
-        .card { max-width: 450px; margin: 0 auto; background: #161F30; padding: 35px 20px; border-radius: 20px; border: 1px solid #2A364F; }
-        h1 { color: #10B981; margin-bottom: 10px; }
-        p { color: #94A3B8; font-size: 15px; }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TravelSplit — Smart Group Expense & Budget Management</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #6366F1;
+      --primary-hover: #4F46E5;
+      --emerald: #10B981;
+      --bg: #0F172A;
+      --card-bg: rgba(30, 41, 59, 0.7);
+      --border: rgba(255, 255, 255, 0.1);
+      --text: #F8FAFC;
+      --text-muted: #94A3B8;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background-image: 
+        radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(16, 185, 129, 0.12) 0px, transparent 50%);
+      background-attachment: fixed;
+      padding: 24px 16px;
+    }
+
+    .container {
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    /* Header / Nav */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0 40px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+
+    .logo-icon {
+      width: 44px;
+      height: 44px;
+      background: linear-gradient(135deg, var(--primary), #8B5CF6);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      box-shadow: 0 8px 16px rgba(99, 102, 241, 0.3);
+    }
+
+    .logo-text {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .version-badge {
+      background: rgba(99, 102, 241, 0.15);
+      border: 1px solid rgba(99, 102, 241, 0.4);
+      color: #A5B4FC;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 40px 10px 50px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 6vw, 54px);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 20px;
+      letter-spacing: -1px;
+    }
+
+    .hero h1 span {
+      background: linear-gradient(135deg, #818CF8, #34D399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: clamp(16px, 3vw, 19px);
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 36px;
+      line-height: 1.6;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: linear-gradient(135deg, var(--primary), #4F46E5);
+      color: #fff;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 16px 36px;
+      border-radius: 14px;
+      text-decoration: none;
+      box-shadow: 0 12px 24px -6px rgba(99, 102, 241, 0.5);
+      transition: all 0.2s ease;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 32px -6px rgba(99, 102, 241, 0.6);
+    }
+
+    /* Features Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin: 40px 0 60px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      padding: 28px 24px;
+      border-radius: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(99, 102, 241, 0.4);
+    }
+
+    .card-icon {
+      font-size: 28px;
+      margin-bottom: 16px;
+      display: inline-block;
+    }
+
+    .card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .card p {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 40px 0 20px;
+      color: var(--text-muted);
+      font-size: 13px;
+      border-top: 1px solid var(--border);
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-    <div class="card">
-        <h1>✈️ TravelSplit</h1>
-        <p>Smart Travel Expense Splitting & Budget Management</p>
-        <p style="margin-top: 20px; font-size: 12px; color: #64748B;">© 2026 TravelSplit. All rights reserved.</p>
-    </div>
+
+  <div class="container">
+    <header>
+      <a href="#" class="logo-container">
+        <div class="logo-icon">✈️</div>
+        <div class="logo-text">TravelSplit</div>
+      </a>
+      <div class="version-badge">v1.1 Available</div>
+    </header>
+
+    <main>
+      <section class="hero">
+        <h1>Simplify Group Travel <br /><span>Expenses & Settlements</span></h1>
+        <p>Split bills effortlessly, optimize debts with minimal transactions, and manage group budgets smoothly in real-time.</p>
+        <a href="https://travelsplit.in/TravelSplit_v1.1.apk" class="cta-btn">
+          <span>⚡</span> Download Android APK
+        </a>
+      </section>
+
+      <section class="features">
+        <div class="card">
+          <div class="card-icon">💳</div>
+          <h3>Smart Expense Splitting</h3>
+          <p>Split bills evenly or by custom amounts. Add receipts, track payers, and see live spending breakdowns.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">⚡</div>
+          <h3>Minimum Debt Simplifier</h3>
+          <p>Greedy debt algorithm calculates the fewest payments needed so everyone gets settled up without confusion.</p>
+        </div>
+
+        <div class="card">
+          <div class="card-icon">🔄</div>
+          <h3>Real-time Cloud Sync</h3>
+          <p>Instant synchronization across group members, complete with checklists, group chat, and announcements.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2026 TravelSplit. All rights reserved.</p>
+    </footer>
+  </div>
+
 </body>
 </html>
