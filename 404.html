@@ -5,69 +5,151 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelSplit - Trip Invitation</title>
     <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-purple: #6366f1;
+            --accent-purple-hover: #4f46e5;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --border-color: #334155;
+            --cyan-glow: #38bdf8;
+        }
         body {
-            background-color: #0f172a;
-            color: #f8fafc;
+            background-color: var(--bg-color);
+            color: var(--text-main);
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
             text-align: center;
-            padding: 40px 20px;
+            padding: 20px;
             margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
         }
-        .card {
-            max-width: 450px;
-            margin: 40px auto;
-            background: #1e293b;
-            padding: 30px;
-            border-radius: 16px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            border: 1px solid #334155;
+        .container {
+            width: 100%;
+            max-width: 440px;
+            background: var(--card-bg);
+            padding: 32px 24px;
+            border-radius: 24px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5), 0 10px 10px -5px rgba(0, 0, 0, 0.4);
+            border: 1px solid var(--border-color);
+            box-sizing: border-box;
         }
-        h2 { color: #38bdf8; margin-bottom: 10px; }
-        p { color: #94a3b8; font-size: 14px; line-height: 1.5; }
-        .code-box {
-            background: #0f172a;
-            color: #38bdf8;
+        .logo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--cyan-glow);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            border: 1px solid rgba(56, 189, 248, 0.3);
+        }
+        h1 {
             font-size: 24px;
-            font-weight: bold;
-            letter-spacing: 3px;
-            padding: 12px;
-            margin: 20px 0;
-            border-radius: 8px;
-            border: 1px dashed #475569;
+            margin: 0 0 8px 0;
+            color: var(--text-main);
+            font-weight: 700;
         }
-        .btn {
+        p {
+            color: var(--text-muted);
+            font-size: 14px;
+            line-height: 1.5;
+            margin: 0 0 24px 0;
+        }
+        .code-box {
+            background: var(--bg-color);
+            color: var(--cyan-glow);
+            font-size: 28px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            padding: 16px;
+            margin: 0 auto 24px auto;
+            border-radius: 14px;
+            border: 1px dashed #475569;
             display: inline-block;
-            background: #6366f1;
+            width: 80%;
+        }
+        .btn-primary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            width: 100%;
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
             color: white;
-            padding: 12px 24px;
-            border-radius: 8px;
+            padding: 14px 20px;
+            border-radius: 12px;
             text-decoration: none;
             font-weight: 600;
-            margin-top: 15px;
+            font-size: 15px;
+            box-sizing: border-box;
+            box-shadow: 0 4px 12px rgba(99, 102, 241, 0.4);
+            transition: transform 0.2s, opacity 0.2s;
+            margin-bottom: 12px;
+        }
+        .btn-primary:active {
+            transform: scale(0.98);
+        }
+        .btn-secondary {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text-main);
+            padding: 12px 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 14px;
+            box-sizing: border-box;
+            border: 1px solid var(--border-color);
             transition: background 0.2s;
         }
-        .btn:hover { background: #4f46e5; }
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        .footer-note {
+            margin-top: 20px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h2>⚡ TravelSplit Invitation</h2>
-        <p>You have been invited to join an expense-sharing group on TravelSplit.</p>
+    <div class="container">
+        <div class="logo-badge">
+            ⚡ TravelSplit Invitation
+        </div>
         
-        <div class="code-box" id="tripCodeDisplay">Loading...</div>
+        <h1>You're Invited to a Trip!</h1>
+        <p>Join this expense-sharing group to collaborate and split bills effortlessly.</p>
         
-        <p id="statusText">Attempting to open the app automatically...</p>
+        <div class="code-box" id="tripCodeDisplay">-----</div>
         
-        <a href="#" id="manualBtn" class="btn" style="display:none;">Open in TravelSplit App</a>
+        <!-- Primary Download Button (For users without the app) -->
+        <a href="https://github.com/yoodhasports/TravelSplit/releases/latest" id="downloadBtn" class="btn-primary">
+            📥 Download Android APK (v1.1.2)
+        </a>
+
+        <!-- Secondary Action: Try opening app if installed -->
+        <a href="#" id="openAppBtn" class="btn-secondary" style="display:none;">
+            Open in TravelSplit App
+        </a>
         
-        <p style="margin-top: 25px; font-size: 12px;">
-            Don't have the app installed? <br>
-            <a href="https://github.com/yoodhasports/TravelSplit/releases" style="color: #38bdf8;">Download Latest APK from GitHub</a>
-        </p>
+        <div class="footer-note">
+            Native Android • Real-time Sync • Secure
+        </div>
     </div>
 
     <script>
-        // URL Path se 5-character trip code nikalna (e.g., /join/K9X2M)
+        // URL path se 5-character trip code nikalna (e.g., /join/K9X2M)
         const path = window.location.pathname;
         const match = path.match(/\/join\/([A-Za-z0-9]{5})/);
         
@@ -75,23 +157,22 @@
             const tripCode = match[1];
             document.getElementById('tripCodeDisplay').innerText = tripCode;
             
-            // Custom Android Intent Trigger
+            // Custom Android Intent URI
             const customIntentUri = `travelsplit://join/${tripCode}`;
             
-            // Redirecting user to app
+            // Agar user ke paas app installed hai, toh intent trigger karne ki koshish karein
+            const openAppBtn = document.getElementById('openAppBtn');
+            openAppBtn.href = customIntentUri;
+            openAppBtn.style.display = "flex";
+
+            // Automatic intent launch attempt
             window.location.href = customIntentUri;
             
-            // Fallback message agar app khulne me time le ya installed na ho
-            setTimeout(() => {
-                document.getElementById('statusText').innerText = "If the app didn't open automatically, tap the button below:";
-                const manualBtn = document.getElementById('manualBtn');
-                manualBtn.href = customIntentUri;
-                manualBtn.style.display = "inline-block";
-            }, 1500);
-            
         } else {
-            document.getElementById('tripCodeDisplay').innerText = "INVALID";
-            document.getElementById('statusText').innerText = "This invitation link is invalid or incomplete.";
+            document.getElementById('tripCodeDisplay').innerText = "ERROR";
+            document.querySelector('h1').innerText = "Invalid Invitation Link";
+            document.querySelector('p').innerText = "The trip code provided in the link is invalid or incomplete.";
+            document.getElementById('openAppBtn').style.display = "none";
         }
     </script>
 </body>
