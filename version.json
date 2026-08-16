@@ -1,7 +1,7 @@
 {
-  "versionCode": 3,
-  "versionName": "1.1.1",
+  "versionCode": 4,
+  "versionName": "1.1.2",
   "minSupportedVersion": 1,
-  "apkUrl": "https://github.com/developer002218/travelsplit-web/releases/download/v1.1.1/TravelSplit_v1.1.1.apk",
-  "releaseNotes": "Major safety update: Added Tagged-Only 50% Consensus Quorum for expenses, Group Exit & Account Deletion safeguards, and historical data preservation."
+  "apkUrl": "https://github.com/developer002218/travelsplit-web/releases/download/v1.1.2/TravelSplit_v1.1.2.apk",
+  "releaseNotes": "UI and Layout Fixes: Optimized trip code chips and action buttons for clean single-line display, enhanced QR share layout, and improved app update startup stability."
 }
