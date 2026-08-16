@@ -128,13 +128,13 @@
             ⚡ TravelSplit Invitation
         </div>
         
-        <h1>You're Invited to a Trip!</h1>
-        <p>Join this expense-sharing group to collaborate and split bills effortlessly.</p>
+        <h1 id="titleText">You're Invited to a Trip!</h1>
+        <p id="descText">Join this expense-sharing group to collaborate and split bills effortlessly.</p>
         
         <div class="code-box" id="tripCodeDisplay">-----</div>
         
         <!-- Primary Download Button (For users without the app) -->
-        <a href="https://github.com/yoodhasports/TravelSplit/releases/latest" id="downloadBtn" class="btn-primary">
+        <a href="https://github.com/developer002218/travelsplit-web/releases/latest" id="downloadBtn" class="btn-primary">
             📥 Download Android APK (v1.1.2)
         </a>
 
@@ -149,29 +149,43 @@
     </div>
 
     <script>
-        // URL path se 5-character trip code nikalna (e.g., /join/K9X2M)
-        const path = window.location.pathname;
-        const match = path.match(/\/join\/([A-Za-z0-9]{5})/);
+        // GitHub Pages 404 redirection ke case mein URL path ko query parameter ya path se nikalna
+        // Jaise agar GitHub ne 404 ke zariye bheja hai ya direct path hai:
+        let pathname = window.location.pathname;
         
+        // Agar GitHub Pages single-page redirect trick use ho rahi hai ya standard path match hai
+        let match = pathname.match(/\/join\/([A-Za-z0-9]{5})/);
+        
+        // Fallback: Agar URL query string mein code ho (e.g. ?code=EHA7Y)
+        if (!match) {
+            const urlParams = new URLSearchParams(window.location.search);
+            const queryCode = urlParams.get('code');
+            if (queryCode && queryCode.length === 5) {
+                match = [null, queryCode];
+            }
+        }
+
         if (match) {
             const tripCode = match[1];
             document.getElementById('tripCodeDisplay').innerText = tripCode;
             
-            // Custom Android Intent URI
-            const customIntentUri = `travelsplit://join/${tripCode}`;
+            // Fallback ke taur par query param wala URL bhi support kare
+            const customIntentUri = `intent://travelsplit.app/join/${tripCode}#Intent;scheme=https;package=com.aistudio.travelsplit.app;end;`;
             
-            // Agar user ke paas app installed hai, toh intent trigger karne ki koshish karein
             const openAppBtn = document.getElementById('openAppBtn');
             openAppBtn.href = customIntentUri;
             openAppBtn.style.display = "flex";
 
-            // Automatic intent launch attempt
-            window.location.href = customIntentUri;
+            // Automatic intent launch attempt browser se app kholne ke liye
+            setTimeout(function() {
+                window.location.replace(customIntentUri);
+            }, 500);
             
         } else {
+            // Agar koi code nahi mila toh standard error / fallback state
             document.getElementById('tripCodeDisplay').innerText = "ERROR";
-            document.querySelector('h1').innerText = "Invalid Invitation Link";
-            document.querySelector('p').innerText = "The trip code provided in the link is invalid or incomplete.";
+            document.getElementById('titleText').innerText = "Invalid Invitation Link";
+            document.getElementById('descText').innerText = "The trip code provided in the link is invalid or incomplete.";
             document.getElementById('openAppBtn').style.display = "none";
         }
     </script>
