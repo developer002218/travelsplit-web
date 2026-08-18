@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TravelSplit - Trip Invitation</title>
+    <title>TravelSplit - Trip & Expense Group Invitation</title>
     <style>
         :root {
             --bg-color: #0f172a;
@@ -60,7 +60,7 @@
             color: var(--text-muted);
             font-size: 14px;
             line-height: 1.5;
-            margin: 0 0 24px 0;
+            margin: 0 0 20px 0;
         }
         .code-box {
             background: var(--bg-color);
@@ -68,12 +68,37 @@
             font-size: 28px;
             font-weight: 800;
             letter-spacing: 4px;
-            padding: 16px;
-            margin: 0 auto 24px auto;
+            padding: 14px;
+            margin: 0 auto 20px auto;
             border-radius: 14px;
             border: 1px dashed #475569;
             display: inline-block;
             width: 80%;
+        }
+        .update-box {
+            background: rgba(15, 23, 42, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 12px 16px;
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        .update-box h3 {
+            font-size: 13px;
+            color: var(--cyan-glow);
+            margin: 0 0 6px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .update-box ul {
+            margin: 0;
+            padding-left: 18px;
+            font-size: 12px;
+            color: var(--text-muted);
+            line-height: 1.4;
+        }
+        .update-box li {
+            margin-bottom: 3px;
         }
         .btn-primary {
             display: flex;
@@ -116,8 +141,8 @@
             background: rgba(255, 255, 255, 0.1);
         }
         .footer-note {
-            margin-top: 20px;
-            font-size: 12px;
+            margin-top: 16px;
+            font-size: 11px;
             color: var(--text-muted);
         }
     </style>
@@ -128,14 +153,24 @@
             ⚡ TravelSplit Invitation
         </div>
         
-        <h1 id="titleText">You're Invited to a Trip!</h1>
+        <h1 id="titleText">You're Invited to a Group!</h1>
         <p id="descText">Join this expense-sharing group to collaborate and split bills effortlessly.</p>
         
         <div class="code-box" id="tripCodeDisplay">-----</div>
+
+        <!-- What's New in v1.1.3 Highlights -->
+        <div class="update-box">
+            <h3>What's New in v1.1.3</h3>
+            <ul>
+                <li>Dual-mode support: Trip Groups & General/Daily Expense Groups.</li>
+                <li>Optional location with local Indian suggestions in expenses.</li>
+                <li>Clean bottom navigation & refined UI polish.</li>
+            </ul>
+        </div>
         
-        <!-- Primary Download Button (For users without the app) -->
-        <a href="https://github.com/developer002218/travelsplit-web/releases/latest" id="downloadBtn" class="btn-primary">
-            📥 Download Android APK (v1.1.2)
+        <!-- Primary Download Button with v1.1.3 Link -->
+        <a href="https://github.com/developer002218/travelsplit-web/releases/download/v1.1.3/TravelSplit_v1.1.3.apk" id="downloadBtn" class="btn-primary">
+            📥 Download Android APK (v1.1.3)
         </a>
 
         <!-- Secondary Action: Try opening app if installed -->
@@ -149,14 +184,9 @@
     </div>
 
     <script>
-        // GitHub Pages 404 redirection ke case mein URL path ko query parameter ya path se nikalna
-        // Jaise agar GitHub ne 404 ke zariye bheja hai ya direct path hai:
         let pathname = window.location.pathname;
-        
-        // Agar GitHub Pages single-page redirect trick use ho rahi hai ya standard path match hai
         let match = pathname.match(/\/join\/([A-Za-z0-9]{5})/);
         
-        // Fallback: Agar URL query string mein code ho (e.g. ?code=EHA7Y)
         if (!match) {
             const urlParams = new URLSearchParams(window.location.search);
             const queryCode = urlParams.get('code');
@@ -169,23 +199,20 @@
             const tripCode = match[1];
             document.getElementById('tripCodeDisplay').innerText = tripCode;
             
-            // Fallback ke taur par query param wala URL bhi support kare
             const customIntentUri = `intent://travelsplit.app/join/${tripCode}#Intent;scheme=https;package=com.aistudio.travelsplit.app;end;`;
             
             const openAppBtn = document.getElementById('openAppBtn');
             openAppBtn.href = customIntentUri;
             openAppBtn.style.display = "flex";
 
-            // Automatic intent launch attempt browser se app kholne ke liye
             setTimeout(function() {
                 window.location.replace(customIntentUri);
             }, 500);
             
         } else {
-            // Agar koi code nahi mila toh standard error / fallback state
             document.getElementById('tripCodeDisplay').innerText = "ERROR";
             document.getElementById('titleText').innerText = "Invalid Invitation Link";
-            document.getElementById('descText').innerText = "The trip code provided in the link is invalid or incomplete.";
+            document.getElementById('descText').innerText = "The group code provided in the link is invalid or incomplete.";
             document.getElementById('openAppBtn').style.display = "none";
         }
     </script>
