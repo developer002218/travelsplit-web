@@ -1,7 +1,7 @@
 {
-  "versionCode": 4,
-  "versionName": "1.1.2",
+  "versionCode": 5,
+  "versionName": "1.1.3",
   "minSupportedVersion": 1,
-  "apkUrl": "https://github.com/developer002218/travelsplit-web/releases/download/v1.1.2/TravelSplit_v1.1.2.apk",
-  "releaseNotes": "UI and Layout Fixes: Optimized trip code chips and action buttons for clean single-line display, enhanced QR share layout, and improved app update startup stability."
+  "apkUrl": "https://github.com/developer002218/travelsplit-web/releases/download/v1.1.3/TravelSplit_v1.1.3.apk",
+  "releaseNotes": "Dual-Mode Support & UI Polish: Added General/Daily Expense Groups alongside Trip Groups, made location optional with Indian local suggestions, removed checklists and target budgets from general groups, and cleaned up navigation and QR dialogs."
 }
