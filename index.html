@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TravelSplit — Smart Group Travel Expense & Budget Tracker</title>
+  <title>TravelSplit — Smart Group Travel & Daily Expense Tracker</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -419,7 +419,7 @@
 <body>
 
   <div class="beta-banner">
-    <span>TESTING PHASE</span> TravelSplit v1.1.2 is in Active Public Beta. Google Play Store launch coming soon!
+    <span>TESTING PHASE</span> TravelSplit v1.1.3 is Live! Dual-Mode support added (Trip Groups & General Expense Groups).
   </div>
 
   <div class="container">
@@ -431,20 +431,20 @@
       <div class="nav-buttons">
         <a href="#features" class="nav-btn-outline">Features</a>
         <a href="#support" class="nav-btn-outline">Support</a>
-        <a href="https://github.com/developer002218/travelsplit-web/releases/download/v1.1.2/TravelSplit_v1.1.2.apk" class="nav-btn-outline" style="border-color: rgba(99,102,241,0.5); color: #A5B4FC;">Download APK</a>
+        <a href="https://github.com/developer002218/travelsplit-web/releases/download/v1.1.3/TravelSplit_v1.1.3.apk" class="nav-btn-outline" style="border-color: rgba(99,102,241,0.5); color: #A5B4FC;">Download APK</a>
       </div>
     </header>
 
     <section class="hero">
       <div class="hero-badge">
-        <span>⚡</span> Native Android • Real-time Sync • Version 1.1.2 Live
+        <span>⚡</span> Native Android • Real-time Sync • Version 1.1.3 Live
       </div>
-      <h1>Simplify Group Travel <br /><span>Expenses & Settlements</span></h1>
-      <p>Split bills with multiple payers, eliminate debt confusion with greedy algorithm optimization, and manage trip budgets without endless math.</p>
+      <h1>Smart Group Travel & <br /><span>Daily Expense Settlements</span></h1>
+      <p>Now featuring dual-mode support for both <strong>Trip Groups</strong> and simplified <strong>General/Daily Expense Groups</strong>. Eliminate debt confusion with optimized algorithms and local Indian landmark suggestions.</p>
 
       <div class="cta-group">
-        <a href="https://github.com/developer002218/travelsplit-web/releases/download/v1.1.2/TravelSplit_v1.1.2.apk" class="btn-primary">
-          <span>📥</span> Download Android APK (v1.1.2)
+        <a href="https://github.com/developer002218/travelsplit-web/releases/download/v1.1.3/TravelSplit_v1.1.3.apk" class="btn-primary">
+          <span>📥</span> Download Android APK (v1.1.3)
         </a>
         <div class="btn-playstore-disabled">
           <span>🛒 Google Play</span>
@@ -456,15 +456,21 @@
     <!-- Key Features -->
     <section id="features">
       <div class="section-title">
-        <h2>Engineered for Seamless Trips</h2>
-        <p>Everything you need before, during, and after group travel.</p>
+        <h2>Engineered for Every Expense Scenario</h2>
+        <p>Everything you need for both long trips and everyday roommate or group expenses.</p>
       </div>
 
       <div class="grid-features">
         <div class="feature-card">
+          <div class="feature-icon">👥</div>
+          <h3>Dual-Mode Group Types</h3>
+          <p>Choose between feature-rich <strong>Trip Groups</strong> (with checklists & budgets) and streamlined <strong>General Groups</strong> for daily room or outing expenses.</p>
+        </div>
+
+        <div class="feature-card">
           <div class="feature-icon">💳</div>
           <h3>Smart Expense Splitting</h3>
-          <p>Split bills equally, by custom shares, or with multiple co-payers. Attach receipt images and track spending in real-time.</p>
+          <p>Split bills equally, customize shares, or handle multiple co-payers with optional Indian location tags and local suggestions.</p>
         </div>
 
         <div class="feature-card">
@@ -482,19 +488,13 @@
         <div class="feature-card">
           <div class="feature-icon">🎒</div>
           <h3>Pre-Trip Checklist</h3>
-          <p>Coordinate packing, tickets, and travel documents with real-time member answer tracking and security compliance checklists.</p>
+          <p>Coordinate packing, tickets, and travel documents with real-time member answer tracking (available in Trip Groups).</p>
         </div>
 
         <div class="feature-card">
           <div class="feature-icon">💬</div>
           <h3>In-Trip Chat & Broadcasts</h3>
-          <p>Communicate with group members directly inside the app. Admins can broadcast pinned announcements with instant alerts.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon">🤖</div>
-          <h3>AI Budget & Route Planner</h3>
-          <p>Intelligent fare estimates and route recommendations powered by Google Gemini AI directly inside your dashboard.</p>
+          <p>Communicate with group members directly inside the app with optimized bottom-navigation and fast member profiles.</p>
         </div>
       </div>
     </section>
@@ -503,7 +503,7 @@
     <section class="screenshots-section">
       <div class="section-title">
         <h2>App Interface & Workflows</h2>
-        <p>A quick look at TravelSplit's modern Jetpack Compose UI.</p>
+        <p>A quick look at TravelSplit's modern Jetpack Compose UI in v1.1.3.</p>
       </div>
 
       <div class="showcase-grid">
@@ -513,7 +513,7 @@
             <img src="screenshot1.jpg" alt="Dashboard" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
             <div class="mockup-placeholder" style="display: none;">
               <p style="font-size: 32px; margin-bottom: 8px;">📊</p>
-              <p><strong>Total Spending & Budgets</strong></p>
+              <p><strong>Total Spending & Groups</strong></p>
               <p style="font-size: 11px; margin-top: 4px;">Live overview of group finances</p>
             </div>
           </div>
@@ -526,7 +526,7 @@
             <div class="mockup-placeholder" style="display: none;">
               <p style="font-size: 32px; margin-bottom: 8px;">🧾</p>
               <p><strong>Multi-Payer & Split Modal</strong></p>
-              <p style="font-size: 11px; margin-top: 4px;">Receipt upload & tag members</p>
+              <p style="font-size: 11px; margin-top: 4px;">Optional location & Indian suggestions</p>
             </div>
           </div>
         </div>
@@ -555,7 +555,7 @@
           <span class="support-tag">Official Support & Help Desk</span>
           <div class="support-title">Have Questions or Feedback?</div>
           <p class="support-bio">
-            Encountered an issue during beta testing, or have a feature suggestion? Our support desk is actively reviewing user feedback to prepare TravelSplit for its upcoming Google Play Store release.
+            Encountered an issue during testing, or have a feature suggestion? Our support desk is actively reviewing user feedback to prepare TravelSplit for its upcoming Google Play Store release.
           </p>
           <div>
             <a href="mailto:travelsplit.support01@gmail.com" class="support-btn">
